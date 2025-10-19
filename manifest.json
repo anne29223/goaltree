@@ -1,0 +1,17 @@
+{
+  "name": "Goal Tree",
+  "short_name": "Goal Tree",
+  "description": "An application to break down large goals into a tree of smaller, manageable sub-goals. Track your progress from the leaves up to the root.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0ea5e9",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

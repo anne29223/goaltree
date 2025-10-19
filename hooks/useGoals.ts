@@ -46,14 +46,20 @@ const updateGoalNameRecursive = (goals: Goal[], goalId: string, newName: string)
 
 const toggleCompletionRecursive = (goals: Goal[], goalId: string): Goal[] => {
   return goals.map(goal => {
+    // Base case: if this is the goal we're looking for
     if (goal.id === goalId) {
+      // Only leaf nodes can be toggled directly, as per UI logic
       if (goal.subGoals.length === 0) {
         return { ...goal, isCompleted: !goal.isCompleted };
       }
     }
-    if (goal.subGoals.length > 0) {
-        return { ...goal, subGoals: toggleCompletionRecursive(goal.subGoals, goalId) };
+
+    // Recursive step: process sub-goals if they exist
+    if (goal.subGoals && goal.subGoals.length > 0) {
+      return { ...goal, subGoals: toggleCompletionRecursive(goal.subGoals, goalId) };
     }
+
+    // Return the goal as-is if it's not the target and has no children
     return goal;
   });
 };
@@ -158,11 +164,11 @@ export const useGoalTree = () => {
   }, [syncAndSetCategories]);
 
   const updateGoalName = useCallback((goalId: string, newName: string) => {
-    setCategories(prev => prev.map(c => ({
+    syncAndSetCategories(cats => cats.map(c => ({
         ...c,
         goals: updateGoalNameRecursive(c.goals, goalId, newName)
     })));
-  }, []);
+  }, [syncAndSetCategories]);
 
   const toggleGoalCompletion = useCallback((goalId: string) => {
     syncAndSetCategories(cats => cats.map(c => ({
