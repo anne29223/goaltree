@@ -38,7 +38,6 @@ PowerShell tip to upload via Play Developer API (optional/advanced):
 - Save and review
 - For internal testing: create internal testing track, add testers (emails), and start rollout
 - For production: review and submit for review
-
 Common issues & checks
 - Ensure the AAB is signed, uses correct package name (matching Bubblewrap or Android project)
 - Manifest hosted on HTTPS and icons accessible

@@ -121,9 +121,7 @@ export const useGoalTree = () => {
   }, []);
 
   const deleteCategory = useCallback((categoryId: string) => {
-    if (window.confirm("Are you sure you want to delete this category and all its goals?")) {
-        setCategories(prev => prev.filter(c => c.id !== categoryId));
-    }
+    setCategories(prev => prev.filter(c => c.id !== categoryId));
   }, []);
 
   const updateCategoryName = useCallback((categoryId: string, newName: string) => {
