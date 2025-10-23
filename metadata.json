@@ -1,0 +1,5 @@
+{
+  "name": "Goal Tree",
+  "description": "An application to break down large goals into a tree of smaller, manageable sub-goals. Track your progress from the leaves up to the root.",
+  "requestFramePermissions": []
+}

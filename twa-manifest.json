@@ -1,0 +1,15 @@
+{
+  "name": "Goal Tree",
+  "short_name": "GoalTree",
+  "start_url": "/",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#0ea5e9",
+  "background_color": "#0f172a",
+  "orientation": "portrait-primary",
+  "manifest_url": "https://young-jobs-wish.loca.lt/manifest.json",
+  "host": "young-jobs-wish.loca.lt",
+  "packageId": "com.jjmtechllc.goaltree",
+  "launcherName": "Goal Tree",
+  "versionCode": 1
+}
