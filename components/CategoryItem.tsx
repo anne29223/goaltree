@@ -3,6 +3,7 @@ import { Category } from '../types';
 import AddGoalForm from './AddGoalForm';
 import GoalItem from './GoalItem';
 import { EditIcon, TrashIcon, FolderIcon, ChevronDownIcon, ChevronRightIcon } from './icons';
+import { showAlert } from './CustomAlert';
 
 interface GoalActions {
   onDelete: (id: string) => void;
@@ -72,7 +73,15 @@ const CategoryItem: React.FC<CategoryItemProps> = ({
            <button onClick={() => setIsEditing(true)} className="p-2 rounded-md hover:bg-yellow-500/10 text-slate-400 hover:text-yellow-400 transition-colors" title="Edit category name">
                 <EditIcon className="w-5 h-5" />
             </button>
-            <button onClick={() => onDeleteCategory(category.id)} className="p-2 rounded-md hover:bg-red-500/10 text-slate-400 hover:text-red-400 transition-colors" title="Delete category">
+            <button 
+                onClick={() => showAlert({
+                    title: "Delete Category",
+                    message: "Are you sure you want to delete this category and all its goals?",
+                    onConfirm: () => onDeleteCategory(category.id)
+                })} 
+                className="p-2 rounded-md hover:bg-red-500/10 text-slate-400 hover:text-red-400 transition-colors" 
+                title="Delete category"
+            >
                 <TrashIcon className="w-5 h-5" />
             </button>
         </div>
